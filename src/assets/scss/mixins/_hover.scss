@@ -1,0 +1,15 @@
+@mixin hover-bg-transparent ($color, $percent) {
+    background-color: $color;
+
+    &:hover {
+        background-color: rgba($color, $percent);
+    }
+}
+
+@mixin hover-color-transparent ($color, $percent) {
+    color: $color;
+
+    &:hover {
+        color: rgba($color, $percent);
+    }
+}

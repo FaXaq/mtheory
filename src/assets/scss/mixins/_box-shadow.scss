@@ -1,0 +1,5 @@
+@import '../utils/vars';
+
+@mixin box-shadow-default($unit: $quarter-unit) {
+    box-shadow: 0px $unit $half-unit rgba($default-black, .2);
+}

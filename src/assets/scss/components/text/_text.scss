@@ -1,0 +1,26 @@
+@import '../../utils/vars';
+
+.m-text-uppercase {
+    text-transform: uppercase;
+
+    & * {
+        text-transform: uppercase;
+    }
+}
+
+/* text colors */
+.m-text-white {
+    color: $default-white;
+
+    & * {
+        color: $default-white;
+    }
+}
+
+.m-text-black {
+    color: $default-black;
+
+    & * {
+        text-transform: $default-black;
+    }
+}

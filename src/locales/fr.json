@@ -1,0 +1,19 @@
+{
+  "home": {
+    "header": {
+      "title": ""
+    }
+  },
+  "homepage": {
+    "header": {
+      "description": "",
+      "title": ""
+    },
+    "title": ""
+  },
+  "lorem": "",
+  "message": "hello i18n !!",
+  "test": {
+    "y": ""
+  }
+}

@@ -1,0 +1,86 @@
+@import '../../utils/vars';
+
+/** FADE IN **/
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.m-fade-in-short {
+    animation: fadeIn $short-duration;
+}
+
+.m-fade-in {
+    animation: fadeIn $default-duration;
+}
+
+.m-fade-in-long {
+    animation: fadeIn $long-duration;
+}
+
+/** FADE OUT **/
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.m-fade-out-short {
+    animation: fadeIn $short-duration;
+}
+
+.m-fade-out {
+    animation: fadeOut $default-duration;
+}
+
+.m-fade-out-long {
+    animation: fadeOut $long-duration;
+}
+
+/** SLIDE IN **/
+
+/*** TO RIGHT ***/
+
+@keyframes slideInToRight {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+.m-slide-in-right {
+    animation: slideInToRight $default-duration;
+}
+
+/*** TO LEFT ***/
+
+@keyframes slideInToLeft {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+.m-slide-in-left {
+    animation: slideInToLeft $default-duration;
+}
+
+/*** TO TOP ***/
+
+@keyframes slideInToTop {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+.m-slide-in-top {
+    animation: slideInToTop $default-duration;
+}
+
+
+/*** TO Bottom ***/
+
+@keyframes slideInToBottom {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+.m-slide-in-bottom {
+    animation: slideInToBottom $default-duration;
+}

@@ -1,0 +1,15 @@
+@import '../../utils/vars', '../../mixins/box-shadow';
+ 
+.m-btn {
+    padding: ($half-unit + $quarter-unit) $base-unit;
+    border-radius: $half-unit;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    @include box-shadow-default($eigth-unit / 2);
+
+    &:hover {
+        transform: translateY(-$eigth-unit);
+        @include box-shadow-default($eigth-unit);
+    }
+}

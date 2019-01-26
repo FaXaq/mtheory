@@ -1,0 +1,7 @@
+@import "./vars";
+@import "../components/text/titles";
+
+/* default config for all html elements */
+* {
+    transition: all $default-duration;
+}

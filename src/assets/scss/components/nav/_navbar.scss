@@ -1,0 +1,28 @@
+@import '../../utils/vars';
+@import '../../mixins/hover';
+
+.m-nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    z-index: 99;
+
+    > .m-nav-logo {
+        display: block;
+    }
+
+    > .m-nav-links {
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+        > .m-nav-link {
+            padding: $base-unit;
+            opacity: 1;
+            font-size: 1.3em;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
