@@ -4,4 +4,33 @@
 /* default config for all html elements */
 * {
     transition: all $default-duration;
+    letter-spacing: .05em;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+h1 {
+    margin: $double-unit 0;
+}
+
+h2 {
+    margin: ($base-unit + $half-unit) 0;
+}
+
+h3 {
+    margin: $base-unit 0;
+}
+
+h4 {
+    margin: ($half-unit + $quarter-unit) 0;
+}
+
+h5 {
+    margin: $half-unit 0;
+}
+
+h6 {
+    margin: $quarter-unit 0;
 }

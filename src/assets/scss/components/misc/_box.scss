@@ -1,0 +1,274 @@
+@import '../../utils/vars';
+
+/* padding 4 sides */
+
+.m-padding-xs {
+    padding: $quarter-unit;
+}
+
+.m-padding-s {
+    padding: $half-unit;
+}
+
+.m-padding-m {
+    padding: $base-unit;
+}
+
+.m-padding-l {
+    padding: $double-unit;
+}
+
+/* padding vertical */
+
+
+.m-padding-v-xs {
+    padding-top: $quarter-unit;
+    padding-bottom: $quarter-unit;
+}
+
+.m-padding-v-s {
+    padding-top: $half-unit;
+    padding-bottom: $half-unit;
+}
+
+.m-padding-v-m {
+    padding-top: $base-unit;
+    padding-bottom: $base-unit;
+}
+
+.m-padding-v-l {
+    padding-top: $double-unit;
+    padding-bottom: $double-unit;
+}
+
+/* padding horizontal */
+
+
+.m-padding-h-xs {
+    padding-left: $quarter-unit;
+    padding-right: $quarter-unit;
+}
+
+.m-padding-h-s {
+    padding-left: $half-unit;
+    padding-right: $half-unit;
+}
+
+.m-padding-h-m {
+    padding-left: $base-unit;
+    padding-right: $base-unit;
+}
+
+.m-padding-h-l {
+    padding-left: $double-unit;
+    padding-right: $double-unit;
+}
+
+/* padding side */
+/** top **/
+
+.m-padding-t-xs {
+    padding-top: $quarter-unit;
+}
+
+.m-padding-t-s {
+    padding-top: $half-unit;
+}
+
+.m-padding-t-m {
+    padding-top: $base-unit;
+}
+
+.m-padding-t-l {
+    padding-top: $double-unit;
+}
+
+/** left **/
+
+.m-padding-l-xs {
+    padding-left: $quarter-unit;
+}
+
+.m-padding-l-s {
+    padding-left: $half-unit;
+}
+
+.m-padding-l-m {
+    padding-left: $base-unit;
+}
+
+.m-padding-l-l {
+    padding-left: $double-unit;
+}
+
+/** bottom **/
+
+.m-padding-b-xs {
+    padding-bottom: $quarter-unit;
+}
+
+.m-padding-b-s {
+    padding-bottom: $half-unit;
+}
+
+.m-padding-b-m {
+    padding-bottom: $base-unit;
+}
+
+.m-padding-b-l {
+    padding-bottom: $double-unit;
+}
+
+/** right **/
+
+.m-padding-r-xs {
+    padding-right: $quarter-unit;
+}
+
+.m-padding-r-s {
+    padding-right: $half-unit;
+}
+
+.m-padding-r-m {
+    padding-right: $base-unit;
+}
+
+.m-padding-r-l {
+    padding-right: $double-unit;
+}
+
+/* margin 4 sides */
+
+.m-margin-xs {
+    margin: $quarter-unit;
+}
+
+.m-margin-s {
+    margin: $half-unit;
+}
+
+.m-margin-m {
+    margin: $base-unit;
+}
+
+.m-margin-l {
+    margin: $double-unit;
+}
+
+/* margin vertical */
+
+.m-margin-v-xs {
+    margin-top: $quarter-unit;
+    margin-bottom: $quarter-unit;
+}
+
+.m-margin-v-s {
+    margin-top: $half-unit;
+    margin-bottom: $half-unit;
+}
+
+.m-margin-v-m {
+    margin-top: $base-unit;
+    margin-bottom: $base-unit;
+}
+
+.m-margin-v-l {
+    margin-top: $double-unit;
+    margin-bottom: $double-unit;
+}
+
+/* margin horizontal */
+
+
+.m-margin-h-xs {
+    margin-left: $quarter-unit;
+    margin-right: $quarter-unit;
+}
+
+.m-margin-h-s {
+    margin-left: $half-unit;
+    margin-right: $half-unit;
+}
+
+.m-margin-h-m {
+    margin-left: $base-unit;
+    margin-right: $base-unit;
+}
+
+.m-margin-h-l {
+    margin-left: $double-unit;
+    margin-right: $double-unit;
+}
+
+/* margin side */
+/** top **/
+
+.m-margin-t-xs {
+    margin-top: $quarter-unit;
+}
+
+.m-margin-t-s {
+    margin-top: $half-unit;
+}
+
+.m-margin-t-m {
+    margin-top: $base-unit;
+}
+
+.m-margin-t-l {
+    margin-top: $double-unit;
+}
+
+/** left **/
+
+.m-margin-l-xs {
+    margin-left: $quarter-unit;
+}
+
+.m-margin-l-s {
+    margin-left: $half-unit;
+}
+
+.m-margin-l-m {
+    margin-left: $base-unit;
+}
+
+.m-margin-l-l {
+    margin-left: $double-unit;
+}
+
+/** bottom **/
+
+.m-margin-b-xs {
+    margin-bottom: $quarter-unit;
+}
+
+.m-margin-b-s {
+    margin-bottom: $half-unit;
+}
+
+.m-margin-b-m {
+    margin-bottom: $base-unit;
+}
+
+.m-margin-b-l {
+    margin-bottom: $double-unit;
+}
+
+/** right **/
+
+.m-margin-r-xs {
+    margin-right: $quarter-unit;
+}
+
+.m-margin-r-s {
+    margin-right: $half-unit;
+}
+
+.m-margin-r-m {
+    margin-right: $base-unit;
+}
+
+.m-margin-r-l {
+    margin-right: $double-unit;
+}

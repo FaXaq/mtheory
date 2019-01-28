@@ -5,5 +5,19 @@
       "title": "A new way to learn music."
     }
   },
+  "404" : {
+    "header": {
+      "title": "Oops, 404",
+      "content": "What were you looking for ?"
+    }
+  },
+  "learn": {
+    "rythm": {
+      "header": {
+        "title": "Rythm",
+        "content": "Tic tic tic"
+      }
+    }
+  },
   "lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur laoreet varius leo ut vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur hendrerit, magna ac tincidunt ullamcorper, magna massa efficitur leo, a sodales eros orci in leo. Phasellus augue velit, fringilla ac ante ac, blandit consequat libero."
 }

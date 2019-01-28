@@ -1,9 +1,0 @@
-@import '../../utils/vars';
-
-@mixin link-color($color) {
-    color: $color;
-
-    &:hover {
-        color: rgba($color, .8);
-    }
-}

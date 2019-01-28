@@ -1,0 +1,22 @@
+.m-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    .m-flex-row {
+        flex-direction: row;
+    }
+
+    .m-flex-row-r {
+        flex-direction: row-reverse;
+    }
+
+    .m-flex-col {
+        flex-direction: column;
+    }
+
+    .m-flex-col-r {
+        flex-direction: column;
+    }
+}

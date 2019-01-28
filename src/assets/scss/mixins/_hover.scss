@@ -6,7 +6,15 @@
     }
 }
 
-@mixin hover-color-transparent ($color, $percent) {
+@mixin hover-color-fade-out($color, $percent: .8) {
+    color: $color;
+
+    &:hover {
+        color: rgba($color, .8);
+    }
+}
+
+@mixin hover-color-transparent($color, $percent) {
     color: $color;
 
     &:hover {

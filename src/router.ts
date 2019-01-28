@@ -23,5 +23,24 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
     },
+    {
+      path: '/learn',
+      name: 'learn',
+      component: () => import('./views/Learn/Layout.vue'),
+      children: [{
+        path: 'rythm',
+        name: 'rythm',
+        component: () => import('./views/Learn/Rythm/Home.vue'),
+      }, {
+        path: '',
+        name: 'home',
+        component: () => import('./views/Learn/Home.vue')
+      }]
+    },
+    {
+      path: '*',
+      name: '404',
+      component: () => import('./views/Errors/404.vue'),
+    }
   ],
 });

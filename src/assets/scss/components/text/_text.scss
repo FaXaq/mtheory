@@ -21,6 +21,14 @@
     color: $default-black;
 
     & * {
-        text-transform: $default-black;
+        color: $default-black;
+    }
+}
+
+.m-text-main {
+    color: $main-color;
+
+    & * {
+        color: $main-color;
     }
 }

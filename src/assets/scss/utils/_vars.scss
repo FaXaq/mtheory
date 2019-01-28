@@ -1,3 +1,5 @@
+@import './colors';
+
 /* sizes */
 $base-unit: 16px;
 
@@ -11,12 +13,6 @@ $default-duration: 0.3s;
 
 $short-duration: $default-duration / 2;
 $long-duration: $default-duration * 2;
-
-/* colors */
-$default-white: #fff;
-$default-black: #23253A;
-
-$nav-link-color: #fff;
 
 /* breakpoints */
 $breakpoint-s: 426px;

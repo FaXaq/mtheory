@@ -1,0 +1,9 @@
+@import '../../utils/vars';
+@import '../../mixins/box-shadow';
+
+.m-card {
+    padding: $base-unit;
+    border-radius: $quarter-unit;
+
+    @include box-shadow-default;
+}

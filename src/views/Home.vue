@@ -1,12 +1,24 @@
 <template>
   <div class="home">
-    <m-page-header :content="headerContent" class="m-position-relative">
+    <m-page-header class="m-position-relative m-text-white">
+        <m-page-header-content>
+            <h1 class="m-fade-in">{{ $t('home.header.title') }}</h1>
+            <p class="m-fade-in-long">{{ $t('home.header.text') }}</p>
+        </m-page-header-content>
         <m-svg-container id="header-bg" class="m-position-absolute m-fill">
             <m-circle v-for="(circle, c) in circles" :key="c.id" :params="circle" ></m-circle>
         </m-svg-container>
     </m-page-header>
-    <p>{{ $t('lorem') }}</p>
-    <button class="m-btn m-text-black">YESS</button>
+    <m-main>
+      <m-section>
+        <h1 class="m-text-main">{{ $t('lorem') }}</h1>
+        <p>{{ $t('lorem') }}</p>
+        <button class="m-btn m-text-black">YESS</button>
+      </m-section>
+    </m-main>
+    <m-page-footer>
+      <p>footer yolo</p>
+    </m-page-footer>
   </div>
 </template>
 
@@ -15,7 +27,11 @@ import { Component, Vue } from 'vue-property-decorator';
 import { clearInterval, setInterval } from 'timers';
 
 /** components */
-import MPageHeader, { IHeaderContent } from '@/components/ui/PageHeader.vue';
+import MPageHeader from '@/components/ui/page/PageHeader.vue';
+import MPageHeaderContent from '@/components/ui/page/PageHeaderContent.vue';
+import MMain from '@/components/ui/page/Main.vue';
+import MSection from '@/components/ui/page/Section.vue';
+import MPageFooter from '@/components/ui/page/PageFooter.vue';
 import MCircle, { IMCircleParams } from '@/components/ui/svg/Circle.vue';
 import MSvgContainer from '@/components/ui/svg/SvgContainer.vue';
 import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
@@ -31,21 +47,16 @@ import Color from 'color';
   components: {
     HelloWorld,
     MPageHeader,
-    MCircle,
+    MPageHeaderContent,
+    MMain,
+    MSection,
+    MPageFooter,
     MSvgContainer,
+    MCircle,
   },
 })
 export default class Home extends Vue {
-  private headerContent: IHeaderContent = {};
-
   private circles: Array<IMCircleParams> = [];
-
-  public initializeTranslations() {
-    this.headerContent = {
-      title: this.$i18n.t('home.header.title') as string,
-      text: this.$i18n.t('home.header.text') as string,
-    };
-  }
 
   public initializeCircles() {
     let c = 0;
@@ -53,7 +64,7 @@ export default class Home extends Vue {
       this.circles.push(this.createNewCircle(c));
       c += 1;
 
-      if (c === 20) clearInterval(interval);
+      if (c === Math.floor(this.$el.clientWidth / 100)) clearInterval(interval);
     }, 3000);
   }
 
@@ -124,7 +135,6 @@ export default class Home extends Vue {
   }
 
   mounted() {
-    this.initializeTranslations();
     this.initializeCircles();
   }
 }
@@ -132,6 +142,6 @@ export default class Home extends Vue {
 
 <style lang="scss" scoped>
 #header-bg {
-    background-image: linear-gradient(to top, #3db5ca 0%, #0f5e92 100%);
+    background-image: linear-gradient(315deg, #00b0f6 0%, #3400ad 100%);
 }
 </style>

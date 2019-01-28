@@ -21,12 +21,22 @@ export default class App extends Vue {
   }, {
     name: 'About',
     url: '/about',
+    children: [{
+      name: 'test',
+      url: '/about/test',
+    }],
   }, {
     name: 'Learn',
     url: '/learn',
     children: [{
       name: 'Rythm',
       url: '/learn/rythm',
+    }, {
+      name: 'Technic',
+      url: '/learn/technic',
+    }, {
+      name: 'Harmony',
+      url: '/learn/harmony',
     }],
   }];
 }

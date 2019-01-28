@@ -6,11 +6,13 @@
 /** form **/
 @import './components/form/btn';
 
+/** container **/
+@import './components/containers/flex';
+
 /** text **/
 @import './components/text/text';
 
 /** nav **/
-@import './components/nav/link';
 @import './components/nav/navbar';
 
 /** misc **/
@@ -19,8 +21,12 @@
 @import './components/misc/position';
 @import './components/misc/animation';
 @import './components/misc/dimensions';
+@import './components/misc/card';
+@import './components/misc/box';
+@import './components/misc/display';
 
 /** page **/
 @import './components/page/header';
 @import './components/page/main';
 @import './components/page/section';
+@import './components/page/footer';

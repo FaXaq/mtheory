@@ -1,0 +1,9 @@
+@import '../../utils/vars';
+
+main.m-main {
+    padding: $half-unit;
+
+    @media screen and (min-width: $breakpoint-l) {
+        padding: $half-unit 15%;
+    }
+}
