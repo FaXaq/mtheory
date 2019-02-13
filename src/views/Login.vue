@@ -76,10 +76,15 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Action, Getter } from 'vuex-class';
 import i18n from '@/i18n';
 
 @Component({})
 export default class Login extends Vue {
+    @Action('login', { namespace: 'auth' }) loginUser: any;
+
+    @Action('signup', { namespace: 'auth' }) signupUser: any;
+
     private loginForm: { [key: string]: string } = {};
 
     private loading: boolean = false;
@@ -89,7 +94,7 @@ export default class Login extends Vue {
     async login() {
       try {
         this.loading = true;
-        const res = await this.$store.dispatch('login', {
+        const res = await this.loginUser({
           username: this.loginForm.username,
           password: this.loginForm.password,
         });
@@ -110,7 +115,7 @@ export default class Login extends Vue {
     async signup() {
       try {
         this.loading = true;
-        const res = await this.$store.dispatch('signup', {
+        const res = await this.signupUser({
           username: this.signupForm.username,
           password: this.signupForm.password,
           passwordConformation: this.signupForm.passwordConfirmation,
