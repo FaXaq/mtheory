@@ -34,13 +34,23 @@ export default new Router({
       }, {
         path: '',
         name: 'home',
-        component: () => import('./views/Learn/Home.vue')
-      }]
+        component: () => import('./views/Learn/Home.vue'),
+      }],
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/Login.vue'),
+    },
+    {
+      path: '/thanks',
+      name: 'thanks',
+      component: () => import('./views/Thanks.vue'),
     },
     {
       path: '*',
       name: '404',
       component: () => import('./views/Errors/404.vue'),
-    }
+    },
   ],
 });

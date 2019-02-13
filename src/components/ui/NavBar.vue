@@ -1,5 +1,5 @@
 <template>
-    <nav class="m-nav m-text-white m-position-absolute">
+    <nav class="m-nav m-text-white m-absolute">
         <div class="m-nav-logo">
             <router-link to="/"></router-link>
         </div>
@@ -23,7 +23,7 @@
                 @mouseover.native="onHoverCard(lastTarget)"
                 @mouseleave.native="onLeaveCard()"
                 class="m-fade-in">
-            <m-card class="m-bg-white m-text-black" v-if="lastTarget.children">
+            <div class="m-card m-bg-white m-text-black" v-if="lastTarget.children">
                 <ul>
                     <li v-for="(cl, c) in lastTarget.children" :key="c">
                         <router-link
@@ -35,7 +35,7 @@
                         </router-link>
                     </li>
                 </ul>
-            </m-card>
+            </div>
         </m-absolute-container>
     </nav>
 </template>
@@ -44,7 +44,6 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
 // components
-import MCard from '@/components/ui/misc/Card.vue';
 import MAbsoluteContainer from '@/components/ui/containers/AbsoluteContainer.vue';
 
 export interface INavLink {
@@ -61,7 +60,6 @@ interface ICardPosition {
 
 @Component({
   components: {
-    MCard,
     MAbsoluteContainer,
   },
 })

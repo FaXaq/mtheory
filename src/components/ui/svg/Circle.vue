@@ -18,8 +18,8 @@ export interface IMCircleParams {
     strokeWidth?: number,
     fill?: string,
     id?: string,
-    cx?: number,
-    cy?: number,
+    cx?: number | string,
+    cy?: number | string,
     r?: number,
 }
 
@@ -35,7 +35,7 @@ export default class MCircle extends Vue {
     }
 
     get cx() {
-      if (typeof this.params.cx === 'number') {
+      if (typeof this.params.cx === 'number' || (this.params.cx || '').indexOf('%')) {
         return this.params.cx;
       }
 
@@ -43,7 +43,7 @@ export default class MCircle extends Vue {
     }
 
     get cy() {
-      if (typeof this.params.cy === 'number') {
+      if (typeof this.params.cy === 'number' || (this.params.cy || '').indexOf('%')) {
         return this.params.cy;
       }
 

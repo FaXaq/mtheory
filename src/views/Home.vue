@@ -1,24 +1,32 @@
 <template>
-  <div class="home">
-    <m-page-header class="m-position-relative m-text-white">
-        <m-page-header-content>
+  <div class="home m-bg-white">
+    <header class="m-page-header m-relative m-text-white">
+        <div class="m-page-header-content">
             <h1 class="m-fade-in">{{ $t('home.header.title') }}</h1>
             <p class="m-fade-in-long">{{ $t('home.header.text') }}</p>
-        </m-page-header-content>
-        <m-svg-container id="header-bg" class="m-position-absolute m-fill">
-            <m-circle v-for="(circle, c) in circles" :key="c.id" :params="circle" ></m-circle>
-        </m-svg-container>
-    </m-page-header>
-    <m-main>
-      <m-section>
-        <h1 class="m-text-main">{{ $t('lorem') }}</h1>
+        </div>
+        <m-absolute-container class="m-fill" :position="{ top: 0, left: 0}">
+          <m-svg-container id="header-bg" class="m-fill">
+              <m-circle v-for="(circle, c) in circles" :key="c.id" :params="circle" ></m-circle>
+          </m-svg-container>
+        </m-absolute-container>
+    </header>
+    <main class="m-main">
+      <section class="m-section">
+        <h1 class="">{{ $t('lorem') }}</h1>
         <p>{{ $t('lorem') }}</p>
         <button class="m-btn m-text-black">YESS</button>
-      </m-section>
-    </m-main>
-    <m-page-footer>
-      <p>footer yolo</p>
-    </m-page-footer>
+      </section>
+    </main>
+    <footer class="m-page-footer">
+      <router-link
+        v-for="(link, l) in footerLinks"
+        :key="l"
+        :to="link.url"
+      >
+        {{ $t(link.name) }}
+      </router-link>
+    </footer>
   </div>
 </template>
 
@@ -27,14 +35,9 @@ import { Component, Vue } from 'vue-property-decorator';
 import { clearInterval, setInterval } from 'timers';
 
 /** components */
-import MPageHeader from '@/components/ui/page/PageHeader.vue';
-import MPageHeaderContent from '@/components/ui/page/PageHeaderContent.vue';
-import MMain from '@/components/ui/page/Main.vue';
-import MSection from '@/components/ui/page/Section.vue';
-import MPageFooter from '@/components/ui/page/PageFooter.vue';
 import MCircle, { IMCircleParams } from '@/components/ui/svg/Circle.vue';
 import MSvgContainer from '@/components/ui/svg/SvgContainer.vue';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import MAbsoluteContainer from '@/components/ui/containers/AbsoluteContainer.vue';
 
 /** mixins */
 import animate from '@/mixins/Bezier';
@@ -42,21 +45,22 @@ import { randomInt, randomFloat } from '@/mixins/Rand';
 
 /** misc */
 import Color from 'color';
+import { INavLink } from '@/components/ui/NavBar.vue';
 
 @Component({
   components: {
-    HelloWorld,
-    MPageHeader,
-    MPageHeaderContent,
-    MMain,
-    MSection,
-    MPageFooter,
     MSvgContainer,
     MCircle,
+    MAbsoluteContainer,
   },
 })
 export default class Home extends Vue {
   private circles: Array<IMCircleParams> = [];
+
+  private footerLinks: Array<INavLink> = [{
+    name: 'Thanks to',
+    url: '/thanks',
+  }]
 
   public initializeCircles() {
     let c = 0;
@@ -65,14 +69,11 @@ export default class Home extends Vue {
       c += 1;
 
       if (c === Math.floor(this.$el.clientWidth / 100)) clearInterval(interval);
-    }, 3000);
+    }, 500);
   }
 
   private createNewCircle(circleNumber: number): { [key: string]: any } {
-    let color = Color([255, 255, 255]);
-
-
-    const alpha = randomFloat(0.3, 0.8);
+    const color = Color([255, 255, 255, 0]);
 
 
     const cy = randomInt(0, this.$el.clientHeight);
@@ -81,16 +82,14 @@ export default class Home extends Vue {
     const cx = randomInt(0, this.$el.clientWidth);
 
 
-    const r = 0;
+    const r = randomInt(40, 200);
 
 
     const finalR = randomInt(20, 140);
 
-    color = color.alpha(alpha);
-
     const newCircle = {
       id: `circle-home-${circleNumber}`,
-      stroke: color.string(),
+      stroke: color.alpha(randomFloat(0.2, 0.4)).string(),
       strokeWidth: 2,
       fill: color.string(),
       cx,
@@ -100,35 +99,13 @@ export default class Home extends Vue {
 
     // animate
     animate({
-      duration: 300,
-      from: r,
-      to: finalR,
+      duration: 600,
+      from: 0,
+      to: Color(newCircle.stroke).alpha(),
       each: (v) => {
-        newCircle.r = v;
+        newCircle.stroke = Color(newCircle.stroke).alpha(v).toString();
       },
       easing: 'ease-in',
-    });
-
-    animate({
-      duration: 300,
-      from: 0,
-      to: randomFloat(0.2, 0.5),
-      each: (v) => {
-        newCircle.fill = color.alpha(v).rgb().string();
-        newCircle.stroke = color.alpha(v).rgb().string();
-      },
-      easing: 'linear',
-    });
-
-    animate({
-      duration: 300,
-      from: 1,
-      to: 0,
-      each: (v) => {
-        newCircle.fill = color.alpha(v).rgb().string();
-      },
-      easing: 'linear',
-      in: 300,
     });
 
     return newCircle;

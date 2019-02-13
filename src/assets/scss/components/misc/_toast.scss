@@ -1,0 +1,47 @@
+@import '../../utils/vars';
+@import '../../utils/colors';
+@import '../../mixins/box-shadow';
+
+.m-toast {
+    border-radius: $base-unit;
+    padding: $base-unit $double-unit $base-unit $base-unit;
+    margin: $half-unit 0;
+    background-color: $default-white;
+    @include box-shadow-default();
+    position: relative;
+
+    &::before, &::after {
+        position: absolute;
+        content: '';
+        display: block;
+        width: $base-unit;
+        height: $eight-unit;
+        right: $base-unit - $eight-unit;
+        top: $double-unit - $eight-unit;
+        cursor: pointer;
+        border-radius: $eight-unit;
+        background-color: transparentize($color: $default-white, $amount: .6)
+    }
+
+    &::before {
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        transform: rotate(-45deg);
+    }
+}
+
+.m-toast-error {
+    color: $default-red;
+    text-shadow: 0px 3px 8px transparentize($color: $default-red, $amount: .8);
+
+    & > * {
+        color: $default-red;
+    }
+
+    &::before, &::after {
+        background-color: transparentize($color: $default-red, $amount: .2)
+    }
+    
+}

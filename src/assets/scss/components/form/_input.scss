@@ -1,0 +1,13 @@
+@import '../../utils/colors';
+@import '../../utils/vars';
+
+.m-input-text {
+    margin: $quarter-unit;
+    padding: $base-unit;
+    border-radius: $base-unit;
+    background-color: $dark-white;
+
+    &:focus {
+        border-bottom-width: $quarter-unit;
+    }
+}

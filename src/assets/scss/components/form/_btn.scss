@@ -6,10 +6,10 @@
     text-transform: uppercase;
 
     cursor: pointer;
-    @include box-shadow-default($eigth-unit / 2);
+    @include box-shadow-default($eight-unit / 2);
 
     &:hover {
-        transform: translateY(-$eigth-unit);
-        @include box-shadow-default($eigth-unit);
+        transform: translateY(-$eight-unit);
+        @include box-shadow-default($eight-unit);
     }
 }

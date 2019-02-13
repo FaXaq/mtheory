@@ -1,6 +1,6 @@
 <template>
     <div
-        class="m-absolute"
+        class="m-fixed"
         v-m-style="{
             left: typeof position.left == 'number' ? position.left + 'px' : 'initial',
             top: typeof position.top == 'number' ? position.top + 'px' : 'initial',
@@ -14,9 +14,8 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { IPosition } from '@/components/ui/containers/Container.vue';
 
-// directives
+import { IPosition } from '@/components/ui/containers/Container.vue';
 import MStyle from '@/directives/Style';
 
 @Component({
@@ -24,10 +23,9 @@ import MStyle from '@/directives/Style';
     MStyle,
   },
 })
-export default class MAbsoluteContainer extends Vue {
-    @Prop({
-      default: () => ({ left: 0, top: 0 }),
-    }) position!: IPosition;
+export default class MFixedComponent extends Vue {
+    @Prop({ default: (() => ({ top: 0, left: 0 })) })
+    private position!: { [key: string]: number };
 }
 </script>
 
