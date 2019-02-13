@@ -63,13 +63,9 @@ export default class Home extends Vue {
   }]
 
   public initializeCircles() {
-    let c = 0;
-    const interval = setInterval(() => {
-      this.circles.push(this.createNewCircle(c));
-      c += 1;
-
-      if (c === Math.floor(this.$el.clientWidth / 100)) clearInterval(interval);
-    }, 500);
+    for (let i = 0; i < Math.floor(this.$el.clientWidth / 100); i += 1) {
+      this.circles.push(this.createNewCircle(i));
+    }
   }
 
   private createNewCircle(circleNumber: number): { [key: string]: any } {
@@ -87,7 +83,7 @@ export default class Home extends Vue {
 
     const finalR = randomInt(20, 140);
 
-    const newCircle = {
+    return {
       id: `circle-home-${circleNumber}`,
       stroke: color.alpha(randomFloat(0.2, 0.4)).string(),
       strokeWidth: 2,
@@ -96,19 +92,6 @@ export default class Home extends Vue {
       cy,
       r,
     };
-
-    // animate
-    animate({
-      duration: 600,
-      from: 0,
-      to: Color(newCircle.stroke).alpha(),
-      each: (v) => {
-        newCircle.stroke = Color(newCircle.stroke).alpha(v).toString();
-      },
-      easing: 'ease-in',
-    });
-
-    return newCircle;
   }
 
   mounted() {
