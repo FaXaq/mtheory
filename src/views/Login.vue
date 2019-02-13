@@ -100,7 +100,7 @@ export default class Login extends Vue {
       } catch (err) {
         this.$emit('notify', {
           level: 'error',
-          message: err.response.data.error,
+          message: err.response ? err.response.data.error : err.message,
         });
       } finally {
         this.loading = false;
@@ -120,7 +120,7 @@ export default class Login extends Vue {
       } catch (err) {
         this.$emit('notify', {
           level: 'error',
-          message: err.response.data.error,
+          message: err.response ? err.response.data.error : err.message,
         });
       } finally {
         this.loading = false;
