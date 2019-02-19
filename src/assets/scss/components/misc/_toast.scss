@@ -4,7 +4,7 @@
 
 .m-toast {
     border-radius: $base-unit;
-    padding: $base-unit $double-unit $base-unit $base-unit;
+    padding: $half-unit $double-unit $half-unit $base-unit;
     margin: $half-unit 0;
     background-color: $default-white;
     @include box-shadow-default();
@@ -17,7 +17,7 @@
         width: $base-unit;
         height: $eight-unit;
         right: $base-unit - $eight-unit;
-        top: $double-unit - $eight-unit;
+        top: $base-unit + $quarter-unit + $eight-unit;
         cursor: pointer;
         border-radius: $eight-unit;
         background-color: transparentize($color: $default-white, $amount: .6)

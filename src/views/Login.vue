@@ -76,7 +76,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { Action, Getter } from 'vuex-class';
+import { Action } from 'vuex-class';
 import i18n from '@/i18n';
 
 @Component({})
@@ -98,9 +98,10 @@ export default class Login extends Vue {
           username: this.loginForm.username,
           password: this.loginForm.password,
         });
-
         if (res) {
-          this.$router.resolve('/');
+          this.$router.push({
+            name: 'home',
+          });
         }
       } catch (err) {
         this.$emit('notify', {
@@ -115,14 +116,15 @@ export default class Login extends Vue {
     async signup() {
       try {
         this.loading = true;
-        const res = await this.signupUser({
+        await this.signupUser({
           username: this.signupForm.username,
           password: this.signupForm.password,
-          passwordConformation: this.signupForm.passwordConfirmation,
+          passwordConfirmation: this.signupForm.passwordConfirmation,
           email: this.signupForm.email,
           emailConfirmation: this.signupForm.emailConfirmation,
         });
       } catch (err) {
+        console.log(err.response, err.message);
         this.$emit('notify', {
           level: 'error',
           message: err.response ? err.response.data.error : err.message,

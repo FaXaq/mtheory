@@ -5,9 +5,11 @@ import { mutations } from './mutations';
 import { AuthState } from './types';
 import { RootState } from '@/store/types';
 
+import Cookie from 'js-cookie';
+
 export const state: AuthState = {
-    accessToken: undefined,
-    refreshToken: undefined
+    accessToken: Cookie.get('accessToken') || undefined,
+    refreshToken: Cookie.get('refreshToken') || undefined
 };
 
 const namespaced: boolean = true;

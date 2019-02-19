@@ -9,5 +9,9 @@ export const getters: GetterTree<AuthState, RootState> = {
 
     refreshToken(state): string {
         return state.refreshToken || '';
+    },
+
+    loggedIn(state): boolean {
+        return state.accessToken !== undefined;
     }
 };

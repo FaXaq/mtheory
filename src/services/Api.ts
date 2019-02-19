@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import path from 'path';
 
 const API_URL = process.env.VUE_APP_API_URL || '';
@@ -40,7 +40,7 @@ export interface ISignupParams {
   emailConfirmation: string
 }
 
-export async function signup(params: ISignupParams) {
+export async function signup(params: ISignupParams): Promise<AxiosResponse> {
   try {
     return await $http.post('users', {
       ...params
@@ -50,8 +50,44 @@ export async function signup(params: ISignupParams) {
   }
 }
 
+export async function logout(accessToken: string, refreshToken: string) {
+  try {
+    if (accessToken) {
+      await $http.post('logout', {}, {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`
+        }
+      })
+    } 
+    
+    if (refreshToken) {
+      await $http.post('logout/refresh', {}, {
+        headers: {
+          'Authorization': `Bearer ${refreshToken}`
+        }
+      })
+    }
+  } catch (err) {
+    throw err;
+  }
+}
+
+export async function refresh(refreshToken: string): Promise<AxiosResponse> {
+  try {
+    return await $http.post('refresh', {}, {
+      headers: {
+        'Authorization': `Bearer ${refreshToken}`
+      }
+    })
+  } catch (err) {
+    throw err;
+  }
+}
+
 export default {
   ping,
   login,
-  signup
+  signup,
+  logout,
+  refresh
 } 

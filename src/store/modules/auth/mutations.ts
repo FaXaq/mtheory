@@ -1,14 +1,23 @@
 import { MutationTree } from 'vuex';
-import { AuthState, ILoginParams } from './types';
+import { AuthState } from './types';
 import Cookie from 'js-cookie';
 
 export const mutations: MutationTree<AuthState> = {
-    updateAccessToken(state: AuthState, newToken: string) {
-        Cookie.set('accessToken', newToken);
-        state.accessToken = newToken;
+    updateAccessToken(state: AuthState, newAccessToken: string) {
+        Cookie.set('accessToken', newAccessToken);
+        state.accessToken = newAccessToken;
     },
-    removeToken(state: AuthState) {
+    removeAccessToken(state: AuthState) {
         Cookie.remove('accessToken');
         state.accessToken = undefined;
     },
+    
+    updateRefreshToken(state: AuthState, newRefreshToken: string) {
+        Cookie.set('refreshToken', newRefreshToken);
+        state.refreshToken = newRefreshToken;
+    },
+    removeRefreshToken(state: AuthState) {
+        Cookie.remove('refreshToken');
+        state.refreshToken = undefined;
+    }
 }

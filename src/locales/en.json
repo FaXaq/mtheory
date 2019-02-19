@@ -1,7 +1,7 @@
 {
   "home": {
     "header": {
-      "text": "Musix (?) is a way to learn music online with professional methods. You'll have access to games, theory, scores, etc. depending on your instrument. You'll learn within three categories : Rythm, Technic and Harmony.",
+      "text": "MT is a way to learn music online with professional methods. You'll have access to theory, scores, etc. depending on your instrument. You'll learn the three pillars of music : Rythm, Technic and Harmony.",
       "title": "A new way to learn music."
     }
   },
@@ -15,7 +15,7 @@
     "rythm": {
       "header": {
         "title": "Rythm",
-        "content": "Tic tic tic"
+        "content": "Rythm is where you got the groove. We'll decribe how time is mesured, noted and how to use it in music. Tic tic tic"
       }
     }
   },

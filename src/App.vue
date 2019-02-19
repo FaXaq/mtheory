@@ -20,6 +20,9 @@ import { Vue, Component } from 'vue-property-decorator';
 import MNavBar, { INavLink } from '@/components/ui/NavBar.vue';
 import MToast from '@/components/ui/Toast.vue';
 import MFixedContainer from '@/components/ui/containers/FixedContainer.vue';
+
+import { Action, Getter } from 'vuex-class';
+
 import uuid from 'uuid';
 
 export interface INotification {
@@ -37,35 +40,52 @@ export interface INotification {
   },
 })
 export default class App extends Vue {
+  @Getter('loggedIn', { namespace: 'auth' }) loggedIn!: boolean;
+
+  @Action('refreshAccessToken', { namespace: 'auth' }) refreshAccessToken!: any;
+
+  @Action('logout', { namespace: 'auth' }) logout!: any;
+
   private notifications: Array<INotification> = [];
 
-  private links: Array<INavLink> = [{
-    name: 'Home',
-    url: '/',
-  }, {
-    name: 'About',
-    url: '/about',
-    children: [{
-      name: 'test',
-      url: '/about/test',
-    }],
-  }, {
-    name: 'Learn',
-    url: '/learn',
-    children: [{
-      name: 'Rythm',
-      url: '/learn/rythm',
-    }, {
-      name: 'Technic',
-      url: '/learn/technic',
-    }, {
-      name: 'Harmony',
-      url: '/learn/harmony',
-    }],
-  }, {
-    name: 'Login',
-    url: '/login',
-  }];
+  get links(): Array<INavLink> {
+    return [
+      {
+        name: 'Home',
+        url: '/',
+      }, {
+        name: 'Learn',
+        url: '/learn',
+        children: [{
+          name: 'Rythm',
+          url: '/learn/rythm',
+        }, {
+          name: 'Technic',
+          url: '/learn/technic',
+        }, {
+          name: 'Harmony',
+          url: '/learn/harmony',
+        }],
+      }, {
+        name: 'Login',
+        url: '/login',
+        show: !this.loggedIn,
+      }, {
+        name: 'Account',
+        url: '/account',
+        show: this.loggedIn,
+        children: [{
+          name: 'Logout',
+          action: () => {
+            this.logout();
+            this.$router.push({
+              name: 'home',
+            });
+          },
+        }],
+      },
+    ];
+  }
 
   notify(notification: INotification) {
     this.notifications.push({
@@ -78,6 +98,13 @@ export default class App extends Vue {
 
   removeNotification(id: string) {
     this.notifications = this.notifications.filter(e => e.id !== id);
+  }
+
+  mounted() {
+    // refresh access token each 15mins
+    setInterval(() => {
+      this.refreshAccessToken();
+    }, 15 * 60 * 1000);
   }
 }
 </script>

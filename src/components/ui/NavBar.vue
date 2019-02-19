@@ -28,11 +28,20 @@
                     <li v-for="(cl, c) in lastTarget.children" :key="c">
                         <router-link
                             :to="cl.url"
-                            @click.native="hoverCard = false"
+                            @click.native="cardClick(cl)"
                             class='m-padding-s m-block m-text-transparent'
+                            v-if="cl.url"
                         >
                             {{ $t(cl.name) }}
                         </router-link>
+                        <a
+                            href="#"
+                            @click.prevent="cardClick(cl)"
+                            class="m-padding-s"
+                            v-if="cl.action"
+                        >
+                            {{ $t(cl.name) }}
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -47,10 +56,11 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import MAbsoluteContainer from '@/components/ui/containers/AbsoluteContainer.vue';
 
 export interface INavLink {
-    name: string,
-    url: string,
-    showLink?: boolean,
-    children?: Array<INavLink>
+    name?: string,
+    url?: string,
+    show?: boolean,
+    children?: Array<INavLink>,
+    action?: () => any
 }
 
 interface ICardPosition {
@@ -96,6 +106,11 @@ export default class MNavBar extends Vue {
       this.hoverCard = false;
     }
 
+    public cardClick(link: INavLink) {
+      this.hoverCard = false;
+      if (link.action) link.action();
+    }
+
     public showSublinks(e: MouseEvent, link: INavLink) {
       const lElement: HTMLLinkElement = e.target as HTMLLinkElement;
 
@@ -109,7 +124,7 @@ export default class MNavBar extends Vue {
     }
 
     get filteredLinks() {
-      return this.links.filter(link => link.showLink !== false);
+      return this.links.filter(link => link.show !== false);
     }
 
     get showCard() {
